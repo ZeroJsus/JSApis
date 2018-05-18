@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>addEventListener第三个参数效果</title>
+</head>
+<body>
+	<div id='d'>
+	    <p id='p'>
+	        <span id='s'>Click Me!</span>
+	    </p>
+	</div>
+</body>
+<script>
+	var div = document.getElementById('d');
+	var p = document.getElementById('p');
+	var span = document.getElementById('s');
+
+	function onClickFn (event) {
+	    var tagName = event.currentTarget.tagName;
+	    var phase = event.eventPhase;
+	    console.log(tagName, phase);
+	}
+
+	// false事件冒泡阶段 事件从内层向外层item响应事件 eventitem->document->window
+	// div.addEventListener('click', onClickFn, false);
+	// p.addEventListener('click', onClickFn, false);
+	// true事件捕获阶段 事件从外层向内层item响应事件 window->document->event
+	div.addEventListener('click', onClickFn, true);
+	p.addEventListener('click', onClickFn, true);
+</script>
+</html>

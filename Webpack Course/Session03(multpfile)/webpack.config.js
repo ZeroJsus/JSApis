@@ -33,6 +33,8 @@ module.exports = {
             filename: 'index.html',
             template: 'index.html',
             inject: true,
+            // 此处用于指定加入生成的index.html的资源文件
+            // 配置参考文档(https://github.com/jantimon/html-webpack-plugin#)
             chunk: ['app','apptwo']
         }),
         new webpack.HotModuleReplacementPlugin(),
