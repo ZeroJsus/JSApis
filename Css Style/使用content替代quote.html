@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>quote</title>
+	<style>
+		.question::before{
+			content: attr(name);
+		}
+		.anwser::before{
+			content: '回答: "';
+		}
+		.question::after,.anwser::after{
+			content: '"';
+		}
+	</style>
+</head>
+<body>
+	<p class="question" name="张三你好">这是张三么?</p>
+	<p class="anwser">这不是张三</p>
+</body>
+</html>

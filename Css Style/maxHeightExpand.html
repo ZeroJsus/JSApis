@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试</title>
+    <style>
+        div.top{
+            resize: both;
+            overflow: auto;
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+        }
+        div.top>p{
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s;
+        }
+        input[type*='checkbox']:checked ~ p{
+            max-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <input type="checkbox" id="check">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet obcaecati rerum aut optio aliquam quidem assumenda, mollitia quisquam iure? Doloribus nobis magnam, suscipit dolores quos inventore praesentium provident obcaecati ab?</p>
+        <label for="check">点击我</label>
+    </div>
+</body>
+</html>

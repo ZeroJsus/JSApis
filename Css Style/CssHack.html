@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CssHack测试</title>
+		<!-- /*条件注释测试*/ <keyword> IE <version> -->
+	<!--[if IE 7]>
+	<style>
+		div.ie6{
+			height: 20px;
+			background-color: red;
+		}
+	</style>
+	<![endif]-->
+	<style>
+	    /* 选择符css hack (*+)max7*/
+		div.ie7{
+			*height: 20px;
+			*background-color: yellow;
+		}
+		/* 属性级hack (\0)min8 (\9\0)min9*/
+		div.ie8{
+			height: 30px\0;
+			background-color: green\0;
+		}
+	</style>
+	<!-- 条件注释控制资源文件 -->
+	<!--[if IE 9]>
+		<link rel="stylesheet" href="./ie9.css">
+	<![endif]-->
+</head>
+<body>
+	<div class="ie6"></div>
+	<div class="ie7"></div>
+	<div class="ie8"></div>
+	<div class="ie9"></div>
+</body>
+</html>

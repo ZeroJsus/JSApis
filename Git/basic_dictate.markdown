@@ -1,0 +1,2 @@
+_配置git log中显示 提交ID 提交信息以及提交相对于现在的时间和提交人信息_ `git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d
+%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"`
