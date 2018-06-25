@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元素左对齐</title>
+	<style>
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+		.father{
+           width: 300px;
+           background-color: gray;
+           margin: auto;
+		}
+		.son{
+           width: 200px;
+           height: 120px;
+           background-color: red;
+           /* 替代float:left; */
+           /*margin-right: auto;*/
+           /* 替代float:right; */
+           margin-left: auto;
+		}
+		/* 使用css实现圆点效果 */
+		.box {
+		    width: 120px; height: 120px;
+		    line-height: 120px;
+		    position: relative;
+		    overflow: hidden;
+		}
+		.radius {
+		    position: absolute;
+		    width: 100%; height: 100%;
+		    border-radius: 50%;
+		    border: 119px dotted;
+		    /* IE7,IE8圆尺寸要小1像素同时有1像素偏移 */
+		    margin: 0 0 1px 1px;
+		    border-width: 0vw;
+		    margin: 0vw;
+		    color: #cd0000;
+		    background-color: currentColor;
+		}
+		.text {
+		    position: relative;
+		    color: #fff;
+		    text-align: center;
+		    font-size: 24px;
+		}
+		/* 使用border绘制加号 */
+		.add{
+			width: 76px;
+			height: 76px;
+			color： #ccc;
+			border: 2px dashed;
+			text-indent: -12em;
+		    transition: color .25s;
+		    display: inline-block;
+			position: relative;
+			overflow: hidden;
+		}
+		.add:after,.add:before{
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+		}
+		.add:before{
+			width: 20px;
+			border-top: 4px solid;
+			margin: -2px 0 0 -10px;
+		}
+		.add:after{
+			height: 20px;
+			border-left: 4px solid;
+			margin: -10px 0 0 -2px;
+		}
+		.add:hover{
+			color: #06c;
+		}
+		/* ie8 兼容border实现圆角 */
+        .button{
+        	display: inline-block;
+        	line-height: 36px;
+        	padding:0 40px;
+        	color: #fff;
+        	background-color: #cd0000;
+        	position: relative;
+        	border: none;
+        	outline: none;
+        	cursor: pointer;
+        }
+        .button:after,.button:before{
+        	content: '';
+        	position: absolute;
+        	left: 0;
+        	right: 0;
+        	border-style: solid;
+        }
+        .button:before{
+            top: -2px;
+            border-width: 0px 2px 2px;
+            border-color: transparent transparent #cd0000;
+        }
+        .button:after{
+            bottom: -2px;
+            border-width: 2px 2px 0px;
+            border-color: #cd0000 transparent transparent;
+        }
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+	<div class="box">
+	    <i class="radius"></i>
+	    <p class="text">美女</p>
+	</div>
+	<a href="" class="add" title="继续上传">添加图片</a>
+	<button class="button">我是按钮</button>
+</body>
+</html>
