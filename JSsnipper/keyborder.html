@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实现tab自动补全得键盘事件</title>
+</head>
+<body>
+	<textarea name="codecontent" id="codecontent" cols="30" rows="10"></textarea>
+</body>
+<script>
+	window.onload = function(){
+		let textarea = document.getElementById('codecontent');
+		document.onkeydown = function(e){
+            // if(e.keyCode == 9){
+            // 	e.preventDefault();
+            // 	return false;
+            // }
+		}
+		textarea.onkeydown = function(e){
+			if(e.keyCode == 9){
+            	e.preventDefault();
+            	// return false;
+            	// 判断当前行有多少个换行
+            	console.log(e);
+            	var nlength = e.target.value.match(/\n/g).length;
+            	// 当前内容的长度
+            	var vlength = e.target.value.length;
+            	// 获取每个换行的位置 设置每个值得区间
+            	var patharr = [],path,i=0;
+                while(nlength>i){
+                	// 获取第一个参数得位置
+                	if(!patharr[i]){
+	                    path = encodeURIComponent(e.target.value).indexOf('%0',i)
+                		patharr.push(path)
+	                	i++
+                	}
+                }
+                // 判断当前是在第几行
+                var nowline = patharr.find(function(item){
+                    if(Number(item)>e.target.selectionEnd){
+                    	return item
+                    }
+                })
+                console.log('返回得数据' + nowline);
+                if(!nowline){
+                    console.log('获取到的内容' + e.target.value.slice(patharr[patharr.length-1]))	
+                }
+                console.log(nowline);
+            	console.log('内容' + e.target.value.match(/\n/g))
+		        console.log('方向' + e.target.selectionDirection)
+		        console.log('所在位置' + e.target.selectionEnd)
+            }
+			// e.preventDefault()
+	        // console.log('keyup')
+		}
+	}
+</script>
+</html>
