@@ -1,0 +1,17 @@
+/* after内容中得dot animation */
+/* 
+ * @description 此动画是用于三点效果
+ * @demo
+ *		p:after{content:''; position: absolute; animation: dot 1s linear infinite;};
+ */
+@keyframes dot{
+	25%{
+		content: '.';
+	}
+	50%{
+		content: '..';
+	}
+	75%{
+		content: '...';
+	}
+}
