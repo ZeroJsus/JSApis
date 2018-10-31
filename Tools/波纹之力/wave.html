@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./waves.min.css">
+	<script src="waves.min.js"></script>
+	<style>
+		#colored-button .btn { color: #fff; }
+    #colored-button a, 
+    #colored-button a:hover { background: #01BCFF; }
+    #colored-button button,
+    #colored-button button:hover { background: #1bb556; }
+    #colored-button input,
+    #colored-button input:hover { background: #ff4f0f; }
+	</style>
+</head>
+<body>
+	<button class="flat-buttons">Button B</button>
+</body>
+<script>
+	Waves.init();
+	Waves.attach('.flat-buttons', ['waves-button', 'waves-float']);
+</script>
+</html>
