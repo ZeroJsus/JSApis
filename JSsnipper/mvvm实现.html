@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="input">	
+	<p id="innerdata"></p>
+</body>
+<script>
+const data = {};
+const input = document.getElementById('input');
+Object.defineProperty(data, 'text', {
+  set(value) {
+    this.value = value;
+  }
+})
+input.onkeyup = function(e) {
+  data.text = e.target.value;
+  document.getElementById('innerdata').textContent = e.target.value;
+}
+</script>
+</html>

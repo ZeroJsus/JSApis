@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FileReader</title>
+	<style>
+		input{
+			display: none;
+		}
+		button{
+			outline: none;
+			border: none;
+			border: 1px solid #000;
+			border-radius: 10px;
+			padding: 13px 15px;
+			cursor: pointer;
+		}
+		button:hover{
+			box-shadow: 0 0 10px #333;
+		}
+	</style>
+</head>
+<body>
+	<input type="file" value="提交" id="file">
+	<button id="btn">上传图片并预览</button>
+</body>
+<script>
+	let input = document.getElementById('file');
+	input.addEventListener('change', function(e){
+		let target = e.target;
+		let file = target.files[0];
+		// 使用FileReader对象
+		let reader = new FileReader();
+		// base64
+		// reader.readAsDataURL(file);
+		// 转换成二进制缓存区
+		reader.readAsArrayBuffer(file);
+		// 转换成文本文案
+		// reader.readAsText(file);
+		reader.addEventListener('load', ()=>{
+			let img = new Image();
+			img.style.cssText = "width: 400px;height: 400px;display: block";
+			// 生成图片此处处理图片信息
+			// img.src = reader.result;
+			// console.log(new Uint8Array(reader.result));
+			// let Blobs = new Blob([reader.result], {type: "image/jpeg"})
+			let Blobs = new Blob([reader.result], {type: "application/octet-binary"})
+			// console.log(Blobs)
+			img.src = URL.createObjectURL(Blobs);
+			// console.log(reader)
+			// console.log(new Blob([reader.result], {type: "application/octet-binary"}))
+
+			img.onload = function() {
+				document.body.appendChild(img);
+			}
+		})
+	})
+
+	// 模拟点击
+	document.getElementById('btn').addEventListener('click',function(){
+		input.click()
+	})
+</script>
+</html>

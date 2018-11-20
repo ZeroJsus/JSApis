@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原生copy实现</title>
+</head>
+<body>
+	<input type="text" id="copyboard">
+	<button id="copy">复制内容</button>
+	<textarea name="" cross="*" width="200" height="300" id="" cols="30" rows="10"></textarea>
+
+	<iframe id="iframe" src="http://192.168.1.35:8080" frameborder="0"></iframe>
+
+</body>
+<script>
+	let copyboard = document.getElementById("copyboard");
+	let copy = document.getElementById("copy");
+	copy.addEventListener('click', function(){
+		let focus = document.activeElement;
+		copyboard.focus()
+		copyboard.setSelectionRange(0, copyboard.value.length);
+		document.execCommand('copy')
+		// 焦点恢复到复制内容这个按钮上
+		focus.focus()
+	})
+
+
+</script>
+</html>
