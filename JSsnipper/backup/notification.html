@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<button onclick="notifyMe()">弹出提示</button>
+<script>
+	function notifyMe(){
+		if(!('Notification' in window)){
+			alert('您的浏览器不支持Notification')
+		}
+		else if(Notification.permission === "granted"){
+			var notification = new Notification("Hello World!",{
+				body:'这是主体内容',
+				icon:'./bg.jpg'
+			})
+		}
+		else if(Notification.permission !== 'denied'){
+			Notification.requestPermission(function(permission){
+				console.log(permission)
+				if(permission === 'granted'){
+					var notification = new Notification("Hello World",{
+						'dir':'auto',
+						// 'dir':'ltr',
+						// 'dir':'rtl',
+						'body':'this is message body',
+						'tag:':'1',
+						'icon':'./bg.jpg'
+					})
+					console.log(notification)
+				}
+			})
+		}
+	}
+</script>
+</body>
+</html>

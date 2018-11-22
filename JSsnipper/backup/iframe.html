@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iframe test</title>
+</head>
+<body>
+	<iframe id="iframe" src="show.html" frameborder="0"></iframe>
+</body>
+<script>
+	var iframe = document.getElementById('iframe');
+	iframe.addEventListener('load',function(e){
+		console.log('loading finish')
+		// console.log(e)
+		console.log(iframe.contentWindow.iframe_item)
+		console.log(iframe.contentWindow.test_val)
+		console.log(iframe.contentDocument)
+	})
+	// console.log(iframe.contentWindow)
+	iframe.addEventListener('readystatechange',function(){
+		if(iframe.readyState=='complete'){
+			console.log('loading ff')
+		}
+	})
+	// iframe.addEventListener('loadeddata',function(e){
+	// 	console.log('loadeddata')
+	// })
+	// iframe.addEventListener('loadstart',function(e){
+	// 	console.log('loadstart')
+	// })
+	// var iframe = document.createElement("iframe"),
+ //    iframeWindow;
+	// iframe.src = "show.html";
+	// document.body.appendChild(iframe);
+	// iframeWindow = iframe.contentWindow || iframe.contentDocument.parentWindow;
+	// iframeWindow.onload = function(){
+	// 	console.log('123456')
+	//     alert("Local iframe is now loaded.");
+	// };
+	/* onloadeddata
+	onloadedmetadata
+	onloadstart */
+	// for(var i in iframe){
+	// 	console.log(i);
+	// }
+	// console.log(iframe)
+</script>
+</html>
